@@ -64,9 +64,15 @@ public class MainActivity extends AppCompatActivity {
                     String Content="";
                     String brand=car.getBrand();
                     String year=car.getConYear();
-                    String used=car.getIsused();
+                    boolean used=car.getIsused();
+                    String isUsed;
+                    if(used==true){
+                        isUsed= "Used";
+                    }else {
+                        isUsed="New";
+                    }
                     String imgUrl=car.getImgUrl();
-                    myitems.add(new MyItems(brand,year,used,imgUrl));
+                    myitems.add(new MyItems(brand,year,isUsed,imgUrl));
 
 
                 }

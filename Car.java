@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class Car {
 
-     @SerializedName("body")
+     @SerializedName("brand")
      String brand;
-     @SerializedName("title")
+     @SerializedName("constractionYear")
      String conYear;
-     @SerializedName("userId")
-     String isused;
+     @SerializedName("isUsed")
+     Boolean isused;
 
      public String getImgUrl() {
           return imgUrl;
@@ -18,7 +18,7 @@ public class Car {
      @SerializedName("imageUrl")
      String imgUrl;
 
-     public Car(String brandd, String consYear, String used) {
+     public Car(String brandd, String consYear, boolean used) {
           brand = brandd;
           conYear = consYear;
           isused = used;
@@ -34,7 +34,7 @@ public class Car {
           return conYear;
      }
 
-     public String getIsused() {
+     public boolean getIsused() {
           return isused;
      }
 }
