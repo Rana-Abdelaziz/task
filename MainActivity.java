@@ -23,7 +23,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     ListView List_view;
-    View v;
     Vector myitems = new  Vector<MyItems>();
     ArrayAdapter my_adpter;
     JsonApi jsonApi;
@@ -32,18 +31,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         List_view=findViewById(R.id.car_details);
-        HttpLoggingInterceptor httpLoggingInterceptor=new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient okHttpClient=new OkHttpClient.Builder()
-                .addInterceptor(httpLoggingInterceptor)
-                .build();
-
         my_adpter = new Array_adapter(this, R.layout.customeview, R.id.title, myitems);
         List_view.setAdapter(my_adpter);
         Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl("http://demo1585915.mockable.io/api/v1/cars?page={page}")
+                .baseUrl("http://demo1585915.mockable.io/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient)
                 .build();
         jsonApi=retrofit.create(JsonApi.class);
         getPosts();
@@ -55,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Car>> call, Response<List<Car>> response) {
                 if(!response.isSuccessful()){
+                    Log.d("d", "success");
                     return;
                 }
                 List<Car>cars=response.body();
                 for(Car car:cars){
-                    String Content="";
                     String brand=car.getBrand();
                     String year=car.getConYear();
                     boolean used=car.getIsused();
