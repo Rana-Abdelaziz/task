@@ -8,13 +8,6 @@ public class MyItems {
     String icon_image;
     String carType;
 
-
-
-
-
-
-
-
     public MyItems(String brand, String conyYear, String carTypa, String icon_image) {
         this.brand = brand;
         this.conYear = conyYear;
@@ -25,7 +18,7 @@ public class MyItems {
 
 
 
-    public String getAdd_Since(){return carType;}
+    public String getCarType(){return carType;}
 
     public String getBrand() {
         return brand;
@@ -39,10 +32,6 @@ public class MyItems {
         return icon_image;
     }
 
-    @NonNull
-    @Override
-    public String toString() {
-        return getBrand();
-    }
+
 
 }

@@ -10,20 +10,12 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
 class Array_adapter extends ArrayAdapter {
     Vector<MyItems> myitem;
     Context _context;
-
-    //final String uid = current_user.getUid();
-    final String uid = "O962aZAeiAcr4FkE5LxRziGNmN12";
-
-
-    HashMap<String,String>interest=new HashMap<>();
-
     public Array_adapter(Context context, int resource, int textViewResourceId, List Items) {
         super(context, resource, textViewResourceId, Items);
         _context=context;
@@ -44,7 +36,7 @@ class Array_adapter extends ArrayAdapter {
         {
             holder= (Holder) row.getTag();
         }
-        holder.get_brand().setText(myitem.get(position).getAdd_Since());
+        holder.get_brand().setText(myitem.get(position).getCarType());
         holder.getCarType().setText(myitem.get(position).getBrand());
         holder.get_counstruction_Year().setText(myitem.get(position).getConYear());
         ImageView imageView=holder.get_carImage();

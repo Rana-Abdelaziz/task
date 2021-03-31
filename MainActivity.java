@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     ListView List_view;
     View v;
     Vector myitems = new  Vector<MyItems>();
-    boolean check=false;
     ArrayAdapter my_adpter;
     JsonApi jsonApi;
     @Override
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         OkHttpClient okHttpClient=new OkHttpClient.Builder()
                 .addInterceptor(httpLoggingInterceptor)
                 .build();
-        myitems.add(new MyItems("Bmw","2015","used","R.drawable.ic_android_black_24dp"));
 
         my_adpter = new Array_adapter(this, R.layout.customeview, R.id.title, myitems);
         List_view.setAdapter(my_adpter);
